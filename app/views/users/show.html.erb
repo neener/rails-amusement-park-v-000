@@ -1,0 +1,8 @@
+Welcome, <%= @user.name %><br>
+Mood: <%= @user.mood %><br>
+Nausea: <%= @user.nausea %><br>
+Tickets: <%= @user.tickets %><br>
+Height: <%= @user.height %><br>
+
+<%= link_to "Edit", edit_user_path(@user) %><br><br>
+<%= link_to "See attractions", attractions_path %>

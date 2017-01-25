@@ -35,7 +35,6 @@ class Ride < ActiveRecord::Base
 			:nausea => new_nausea,
 			:tickets => new_tickets
 			)
-
 	end
 
 	def not_enough_tickets
