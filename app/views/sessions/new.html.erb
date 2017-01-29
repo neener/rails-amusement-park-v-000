@@ -1,16 +1,6 @@
-<%= form_for @user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
-
-  <div class="field">
-    <%= f.label :name, "Select your name" %><br>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "Enter your password" %><br>
-    <%= f.password_field :password %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign In"  %>
-  </div>
+<h1>Sign in</h1>
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <input name="user[name]" type="text" id="name">
+  <input name="user[password]" type="password" id="password">
+  <input type="submit" value='Sign In'>
 <% end %>

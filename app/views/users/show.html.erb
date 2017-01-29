@@ -1,3 +1,7 @@
+<% if @user.admin? %>
+	ADMIN
+<% end %>
+
 Welcome, <%= @user.name %><br>
 Mood: <%= @user.mood %><br>
 Nausea: <%= @user.nausea %><br>

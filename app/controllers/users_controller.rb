@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+	# before_action :set_user, only: [:show, :edit, :update, :destroy]
 	
+
 	def new
 		@user = User.new
 	end
@@ -28,8 +30,10 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		if !logged_in? || current_user.id != params[:id].to_i
+			redirect_to '/' and return
+		end
 		@user = User.find(params[:id])
-    	redirect_to root_path unless logged_in? && session[:user_id] == @user.id
 	end
 
 	private
@@ -37,4 +41,8 @@ class UsersController < ApplicationController
 		def user_params
 			params.require(:user).permit(:name, :password, :nausea, :happiness, :height, :tickets, :admin)
 		end
+
+		# def set_user
+		# 	@user = User.find(params[:id])
+		# end
 end
