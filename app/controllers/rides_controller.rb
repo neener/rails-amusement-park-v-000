@@ -7,9 +7,8 @@ class RidesController < ApplicationController
 	def create
 		@ride = Ride.new(ride_params)
 		if @ride.save
-			# binding.pry
 			current_user.update(tickets: current_user.tickets - @ride.attraction.tickets, nausea: @ride.attraction.nausea_rating, happiness: @ride.attraction.happiness_rating)
-			redirect_to "/users/#{current_user.id}"		
+			redirect_to user_path(current_user)		
 		else
 			render 'new'
 		end
